@@ -1,0 +1,50 @@
+# Copy this file to config.toml and edit it for your server.
+# config.toml is ignored by git.
+
+[server]
+# Choose one:
+# - "local": Ollama already runs on this computer or on a reachable LAN URL.
+# - "ssh": any SSH-reachable Linux server, including home servers and AWS/Azure/Linode/etc.
+# - "gcloud": Google Compute Engine through gcloud compute ssh.
+mode = "ssh"
+
+# Used when mode = "local".
+# Examples:
+#   "http://localhost:11434"
+#   "http://192.168.1.50:11434"
+local_ollama_url = "http://localhost:11434"
+
+# Used when mode = "ssh" or "gcloud".
+# Keep the remote Ollama service bound to localhost on the server.
+remote_ollama_host = "127.0.0.1"
+remote_ollama_port = 11434
+local_ollama_port = 11435
+
+# Local browser UI port.
+local_ui_port = 8787
+
+[ssh]
+# Used when mode = "ssh".
+# Examples:
+#   "alice@192.168.1.50"
+#   "ubuntu@ec2-203-0-113-10.compute-1.amazonaws.com"
+host = "USER@HOST"
+port = 22
+identity_file = ""
+extra_args = []
+
+[gcloud]
+# Used only when mode = "gcloud".
+project = "YOUR_GCP_PROJECT_ID"
+zone = "YOUR_GCP_ZONE"
+instance = "YOUR_GCE_INSTANCE_NAME"
+user = ""
+tunnel_through_iap = false
+
+[install]
+# Linux/systemd installer settings for SSH or gcloud targets.
+remote_install_root = "/opt/remote-ollama-tunnel-chat"
+models = [
+  "llama3.2",
+  "qwen3:8b"
+]

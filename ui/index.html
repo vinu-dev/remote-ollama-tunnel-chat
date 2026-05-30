@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Remote Ollama Chat</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <span class="mark" aria-hidden="true">AI</span>
+          <div>
+            <h1>Ollama Chat</h1>
+            <p id="statusText">Connecting to VM</p>
+          </div>
+        </div>
+
+        <div class="controls">
+          <label class="field">
+            <span>Server</span>
+            <input id="endpointInput" type="url" value="http://localhost:11435" spellcheck="false">
+          </label>
+
+          <label class="field">
+            <span>Model</span>
+            <select id="modelSelect">
+              <option>qwen3:8b</option>
+              <option>llama3.2</option>
+            </select>
+          </label>
+
+          <label class="toggle">
+            <input id="thinkToggle" type="checkbox">
+            <span>Think</span>
+          </label>
+
+          <button id="refreshButton" type="button">Refresh</button>
+          <button id="clearButton" type="button">New</button>
+        </div>
+      </header>
+
+      <section id="messages" class="messages" aria-live="polite"></section>
+
+      <form id="composer" class="composer">
+        <textarea id="promptInput" rows="1" placeholder="Ask your VM model anything"></textarea>
+        <button id="stopButton" class="secondary" type="button" disabled>Stop</button>
+        <button id="sendButton" type="submit">Send</button>
+      </form>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+# Local machine and VM-specific config
+config/config.toml
+*.local.toml
+
+# Logs and runtime artifacts
+logs/
+.runtime/
+*.log
+*.pid
+
+# Secrets and environment files
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.json
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+__pycache__/
+*.pyc
